@@ -1,0 +1,18 @@
+<h1>DBZ Personajes</h1>
+
+<hr>
+
+<div class="row">
+  <div class="col">
+    <h4>Listado</h4>
+    <dbz-char-list
+      [charList]="dbzService.characters"
+      (onDeletedId)="dbzService.deleteCharByUuid($event)"
+      >
+    </dbz-char-list>
+  </div>
+  <div class="col">
+    <h4>Agregar Personaje</h4>
+    <dbz-char-form (onNewCharacter)="dbzService.onNewCharacter($event)"></dbz-char-form>
+  </div>
+</div>
