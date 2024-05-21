@@ -6,13 +6,13 @@
   <div class="col">
     <h4>Listado</h4>
     <dbz-char-list
-      [charList]="dbzService.characters"
-      (onDeletedId)="dbzService.deleteCharByUuid($event)"
+      [charList]="characters"
+      (onDeletedId)="onDeletedId($event)"
       >
     </dbz-char-list>
   </div>
   <div class="col">
     <h4>Agregar Personaje</h4>
-    <dbz-char-form (onNewCharacter)="dbzService.onNewCharacter($event)"></dbz-char-form>
+    <dbz-char-form (onNewCharacter)="onNewCharacter($event)"></dbz-char-form>
   </div>
 </div>
