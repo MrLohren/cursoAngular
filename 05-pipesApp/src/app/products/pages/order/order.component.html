@@ -1,0 +1,58 @@
+<p-panel header="Pipes Personalizados" class="p-1">
+  <p>Creados por {{ 'nosotros' | toggleCase:isUpperCase}}</p>
+</p-panel>
+
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+      <p-button
+        label="toggleCase"
+        icon="pi pi-plus"
+        (click)="toggleUpperCase()"
+        class="mr-2"/>
+  </div>
+
+  <div class="p-toolbar-group-end">
+
+    <p-button
+      label="Por Nombre"
+      icon="pi pi-print"
+      class="mr-2"
+      (onClick)="changeOrder('name')"/>
+
+    <p-button
+      label="Por volar"
+      icon="pi pi-upload"
+      class="mr-2"
+      (onClick)="changeOrder('canFly')"/>
+
+    <p-button
+      label="Por color"
+      icon="pi pi-upload"
+      class="mr-2"
+      (onClick)="changeOrder('color')"/>
+
+  </div>
+</p-toolbar>
+
+<div class="grid">
+  <div class="col mt-2">
+    <p-fieldset legend="Heroes" [toggleable]="true">
+      <p-table [value]="heroes | sortBy:orderBy" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Vuela?</th>
+                <th>Color</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>{{ product.canFly | canFly }}</td>
+              <td>{{ product.color }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </p-fieldset>
+  </div>
+</div>
